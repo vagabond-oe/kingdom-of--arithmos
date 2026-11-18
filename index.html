@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kingdom of Arithmos</title>
+    <link rel="icon" href="logo.svg" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BACKGROUND + FOG -->
+    <div class="bg" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="fog fog-1" aria-hidden="true"></div>
+    <div class="fog fog-2" aria-hidden="true"></div>
+    <div class="fog fog-3" aria-hidden="true"></div>
+
+    <!-- HEADER (glassmorphism) -->
+    <header class="site-header" id="siteHeader">
+        <!-- small logo, left corner -->
+        <a class="brand" href="#home" aria-label="The Kingdom of Arithmos - Home">
+            <img src="logo.svg" alt="" class="logo-sm">
+            <span class="brand-text">
+                <span>THE KINGDOM OF</span>
+                <strong>ARITHMOS</strong>
+            </span>
+        </a>
+
+        <nav class="nav" id="nav" aria-label="Main">
+            <ul class="nav-left">
+                <li><a href="#home" data-nav="home">Home</a></li>
+                <li><a href="#about" data-nav="about">About</a></li>
+                <li><a href="#houses" data-nav="houses">Houses</a></li>
+            </ul>
+
+            <ul class="nav-right">
+                <li><a href="#events" data-nav="events">Events</a></li>
+                <li><a href="#contact" data-nav="contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#login" class="login-btn" data-nav="login">
+                <span aria-hidden="true">👑</span> <span id="loginLabel">Login</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section class="page hero" id="home">
+            <div class="hero-content">
+                <h1>The Kingdom of Arithmos</h1>
+                <p class="motto">One Kingdom &bull; Five Houses &bull; Endless Strategies</p>
+                <a href="#login" class="enter-btn">ENTER THE KINGDOM &gt;</a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="page" id="about">
+            <div class="wrap">
+                <h2 class="title">About Arithmos</h2>
+                <div class="grid" data-stagger>
+                    <article class="card">
+                        <h3>The Game</h3>
+                        <p>Arithmos is a strategy game of numbers and nerve. Five houses compete across three auction rounds, bidding for mathematicians, then formulas and equations, and finally for the identity that will define their house.</p>
+                    </article>
+                    <article class="card">
+                        <h3>The Kingdom</h3>
+                        <p>Beneath a moonlit castle, one kingdom is split between five rival houses. Every house wants the throne of reason, and only the sharpest strategy will win it.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Strategy &amp; Mathematics</h3>
+                        <p>Every bid is a calculation. Know the value of what you buy, read the other houses, and decide when to hold your coin.</p>
+                    </article>
+                    <article class="card">
+                        <h3>The Origin of Arithmos</h3>
+                        <p>Origin story to be provided.</p>
+                    </article>
+                </div>s
+            </div>
+        </section>
+
+        <!-- HOUSES -->
+        <section class="page" id="houses">
+            <div class="wrap">
+                <h2 class="title">The Five Houses</h2>
+                <div class="grid grid-5" id="houseGrid" data-stagger></div>
+            </div>
+        </section>
+
+        <!-- EVENTS -->
+        <section class="page" id="events">
+            <div class="wrap">
+                <h2 class="title">The Auctions</h2>
+                <div class="grid grid-3" data-stagger>
+                    <article class="card event-card">
+                        <span class="badge">Round 1</span>
+                        <h3>Mathematician Auction</h3>
+                        <p>Details, date and rules to be provided.</p>
+                    </article>
+                    <article class="card event-card">
+                        <span class="badge">Round 2</span>
+                        <h3>Formula &amp; Equation Auction</h3>
+                        <p>Details, date and rules to be provided.</p>
+                    </article>
+                    <article class="card event-card">
+                        <span class="badge">Round 3</span>
+                        <h3>Final Identity Auction</h3>
+                        <p>Details, date and rules to be provided.</p>
+                    </article>
+                </div>
+                 <h2 class="title sub">The Houses</h2>
+                <div class="chips" id="aboutHouses"></div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="page" id="contact">
+            <div class="wrap narrow">
+                <h2 class="title">Send a Raven</h2>
+                <form class="card form" id="contactForm" novalidate>
+                    <label>Your name
+                        <input type="text" name="name" autocomplete="name" required>
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" autocomplete="email" required>
+                    </label>
+                    <label>Message
+                        <textarea name="message" rows="5" required></textarea>
+                    </label>
+                    <button type="submit" class="btn">Send Message</button>
+                    <p class="status" id="contactStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- LOGIN -->
+        <section class="page" id="login">
+            <div class="wrap narrow">
+                <h2 class="title">Enter the Kingdom</h2>
+
+                <div class="card form-card">
+                    <!-- shown when logged in -->
+                    <div id="welcome" hidden>
+                        <h3>Welcome, <span id="welcomeName"></span></h3>
+                        <p>You serve <strong id="welcomeHouse"></strong>.</p>
+                        <button type="button" class="btn" id="logoutBtn">Logout</button>
+                    </div>
+
+                    <!-- shown when logged out -->
+                    <div id="authBox">
+                        <form class="form" id="loginPanel" novalidate>
+                            <label>House
+                                <select name="house" class="house-select" required></select>
+                            </label>
+                            <label>Username
+                                <input type="text" name="username" autocomplete="username" autocapitalize="none" required>
+                            </label>
+                            <label>Password
+                                <input type="password" name="password" autocomplete="current-password" required>
+                            </label>
+                            <button type="submit" class="btn">Login</button>
+                            <p class="status" id="loginStatus" role="status" aria-live="polite"></p>
+                            <p class="hint">Your fictional username and password were sent to the email you used in the registration form.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>&copy; The Kingdom of Arithmos</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
